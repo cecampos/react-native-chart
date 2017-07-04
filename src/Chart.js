@@ -247,6 +247,7 @@ Chart.propTypes = {
 	onDataPointPress: PropTypes.func,
 	yAxisUseDecimal: PropTypes.bool,
 	yAxisShortLabel: PropTypes.bool,
+	fontStyle: PropTypes.any,
 
 	// Bar chart props
 	color: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
