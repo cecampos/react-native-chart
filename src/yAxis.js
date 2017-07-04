@@ -26,7 +26,8 @@ export default class YAxis extends Component<void, any, any> {
 		verticalGridStep: PropTypes.number.isRequired,
 		yAxisTransform: PropTypes.func,
 		yAxisUseDecimal: PropTypes.bool,
-		yAxisShortLabel: PropTypes.bool
+		yAxisShortLabel: PropTypes.bool,
+		fontStyle: PropTypes.any
 	};
 
 	static defaultProps : any = {
@@ -80,10 +81,10 @@ export default class YAxis extends Component<void, any, any> {
 		}
 		return (
 			<Text
-				style={{
-					color: this.props.axisLabelColor,
-					fontSize: this.props.labelFontSize,
-				}}
+				style={[{
+									color: this.props.axisLabelColor,
+									fontSize: this.props.labelFontSize,
+								}, this.props.fontStyle]}
 				key={index}
 			>
 				{label}
