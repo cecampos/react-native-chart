@@ -44,7 +44,7 @@ export default class BarChart extends Component<void, any, any> {
 			maxBound += this.props.verticalGridStep;
 		}
 
-		const data = this.props.data || [];
+		const data = this.props.data[0] || [];
 		const width = (WIDTH / data.length * this.props.horizontalScale * 0.5) * widthPercent;
 		const divisor = (maxBound - minBound <= 0) ? 0.00001 : (maxBound - minBound);
 		const scale = HEIGHT / divisor;
@@ -69,7 +69,7 @@ export default class BarChart extends Component<void, any, any> {
 	};
 
 	render() {
-		const data = this.props.data || [];
+		const data = this.props.data[0] || [];
 		return (
 			<View ref="container" style={[styles.default]}>
 				<Grid {...this.props} />
