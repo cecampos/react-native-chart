@@ -31,6 +31,7 @@ export default class XAxis extends Component {
 		labelFontSize: PropTypes.number.isRequired,
 		xAxisTransform: PropTypes.func,
 		horizontalGridStep: PropTypes.number,
+		fontStyle: PropTypes.any
 	};
 	static defaultProps = {
 		align: 'center',
@@ -71,6 +72,7 @@ export default class XAxis extends Component {
 									color: this.props.axisLabelColor,
 									fontSize: this.props.labelFontSize,
 								},
+								this.props.fontStyle,
 							]}
 						>{item}</Text>
 				);
