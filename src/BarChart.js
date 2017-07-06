@@ -57,8 +57,10 @@ export default class BarChart extends Component<void, any, any> {
 			>
 				<View
 					style={{
-						borderTopLeftRadius: this.props.cornerRadius || 0,
-						borderTopRightRadius: this.props.cornerRadius || 0,
+						borderTopLeftRadius: this.props.topCornerRadius || 0,
+						borderTopRightRadius: this.props.topCornerRadius || 0,
+						borderBottomLeftRadius: this.props.bottomCornerRadius || 0,
+						borderBottomRightRadius: this.props.bottomCornerRadius || 0,
 						backgroundColor,
 						width,
 						height,
