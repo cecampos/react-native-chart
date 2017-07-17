@@ -49,7 +49,9 @@ export default class BarChart extends Component<void, any, any> {
 		const divisor = (maxBound - minBound <= 0) ? 0.00001 : (maxBound - minBound);
 		const scale = HEIGHT / divisor;
 		let height = HEIGHT - ((minBound * scale) + (HEIGHT - (dataPoint * scale)));
-		if (height <= 0) height = 20;
+		if (height <= 0) height = minBound;
+
+		if (height > maxBound) height = maxBound;
 		return (
 			<TouchableWithoutFeedback
 				key={index}
