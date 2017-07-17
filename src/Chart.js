@@ -182,9 +182,9 @@ export default class Chart extends Component<void, any, any> {
 											data={this.props.data}
 											height={this.state.containerHeight - this.props.xAxisHeight}
 											width={this.props.yAxisWidth}
-											minVerticalBound={this.state.bounds.min}
+											minVerticalBound={this.props.verticalMinBound !== undefined ? this.props.verticalMinBound : this.state.bounds.min}
 											containerWidth={this.state.containerWidth}
-											maxVerticalBound={this.state.bounds.max}
+											maxVerticalBound={this.props.verticalMaxBound !== undefined ? this.props.verticalMaxBound : this.state.bounds.max}
 											yAxisUseDecimal={this.props.yAxisUseDecimal}
 											yAxisShortLabel={this.props.yAxisShortLabel}
 											style={{ width: this.props.yAxisWidth }}
@@ -195,8 +195,8 @@ export default class Chart extends Component<void, any, any> {
 										data={this.props.data}
 										width={this.state.containerWidth - this.props.yAxisWidth}
 										height={this.state.containerHeight - this.props.xAxisHeight}
-										minVerticalBound={this.state.bounds.min}
-										maxVerticalBound={this.state.bounds.max}
+										minVerticalBound={this.props.verticalMinBound !== undefined ? this.props.verticalMinBound : this.state.bounds.min}
+										maxVerticalBound={this.props.verticalMaxBound !== undefined ? this.props.verticalMaxBound : this.state.bounds.max}
 									/>
 								</View>
 								{(() => {
@@ -227,8 +227,8 @@ export default class Chart extends Component<void, any, any> {
 								data={this.props.data}
 								width={this.state.containerWidth}
 								height={this.state.containerHeight}
-								minVerticalBound={this.state.bounds.min}
-								maxVerticalBound={this.state.bounds.max}
+								maxVerticalBound={this.props.verticalMaxBound ? this.props.verticalMaxBound : this.state.bounds.max}
+								minVerticalBound={this.props.verticalMinBound ? this.props.verticalMinBound : this.state.bounds.min}
 							/>
 						</View>
 					);
@@ -295,4 +295,6 @@ Chart.propTypes = {
 	// yAxisTitle: PropTypes.string,
 	yAxisTransform: PropTypes.func,
 	yAxisWidth: PropTypes.number,
+	verticalMinBound: PropTypes.number,
+	verticalMaxBound: PropTypes.number,
 };
