@@ -153,11 +153,8 @@ export default class LineChart extends Component<void, any, any> {
 				<View style={{ position: 'absolute' }}>
 					<Surface width={containerWidth} height={containerHeight}>
 						{ multipleLines }
-						{ multipleFills }
+						{ /*multipleFills*/ }
 					</Surface>
-				</View>
-				<View style={{ position: 'absolute' }}>
-					<Surface width={containerWidth} height={containerHeight} />
 				</View>
 				{(() => {
 					if (!this.props.showDataPoint) return null;
@@ -193,12 +190,10 @@ export default class LineChart extends Component<void, any, any> {
 			);
 		}
 		return (
-			<View>
-				<Grid {...this.props} />
 				<View style={{ height: this.props.height }}>
+					<Grid {...this.props} />
 					{this._drawLine()}
 				</View>
-			</View>
 		);
 	}
 }

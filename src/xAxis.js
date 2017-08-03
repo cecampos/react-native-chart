@@ -56,25 +56,29 @@ export default class XAxis extends Component {
 			>
 			{(() => {
 				if (!this.props.showXAxisLabels) return null;
+				const dataLength = data.length-1;
 				return data.map((d, i) => {
 					let stepsBetweenVerticalLines = this.props.horizontalGridStep ? Math.round((data.length) / this.props.horizontalGridStep + 1) : 1;
 					if (stepsBetweenVerticalLines < 1) stepsBetweenVerticalLines = 1;
 					if (i % stepsBetweenVerticalLines !== 0) return null;
-					const item = transform(d);
+					let item = transform(d);
 					if (typeof item !== 'number' && !item) return null;
+					if(this.props.onlyLastXLabel && i !== dataLength){ item = '' }
 					return (
+						<View	style={[styles.axisText, { marginLeft: this.props.onlyLastXLabel ? -22 : 0}]}
+						>
 						<Text
 							key={i}
 							style={[
-								styles.axisText,
 								{
 									textAlign: this.props.align,
-									color: this.props.axisLabelColor,
+									color: this.props.xAxisLabelColor!==undefined ? this.props.xAxisLabelColor : this.props.axisLabelColor,
 									fontSize: this.props.labelFontSize,
 								},
 								this.props.fontStyle,
 							]}
 						>{item}</Text>
+						</View>
 				);
 				});
 
